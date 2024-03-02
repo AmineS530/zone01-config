@@ -1,0 +1,1 @@
+curl -s blob:https://github.com/8a15a428-9b9b-47d9-b13f-fc0ca43e0813 > cd ~/ && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && curl -s blob:https://github.com/0d44f3d6-447c-480a-98c5-a06c9b470924 > cd ~/
