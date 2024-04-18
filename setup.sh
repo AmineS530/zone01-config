@@ -1,1 +1,4 @@
-curl -s blob:https://github.com/8a15a428-9b9b-47d9-b13f-fc0ca43e0813 > cd ~/ && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && curl -s blob:https://github.com/0d44f3d6-447c-480a-98c5-a06c9b470924 > cd ~/
+image_path="$HOME/zone01-config/1346622.jpeg"
+git clone https://github.com/AmineS530/zone01-config.git ~/zone01-config && cd ~/zone01-config/ && mv .p10k.zsh ~/.p10k.zsh && mv .zshrc ~/.zshrc && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+gsettings set org.gnome.desktop.background picture-uri-dark "file://${image_path}"
+gsettings set org.gnome.desktop.background picture-uri "file://${image_path}"
