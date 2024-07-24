@@ -14,9 +14,6 @@ mv .p10k.zsh ~/.p10k.zsh && mv .zshrc ~/.zshrc
 # clones zsh theme 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
-# change display and terminal font
-zsh set_font.sh
-
 # small script to set up git for first use and to rembember your info in the future
 zsh git_setup.sh
 
@@ -26,6 +23,9 @@ gsettings set org.gnome.desktop.background picture-uri "file://${image_path}"
 
 # Changes theme Color
 gsettings set org.gnome.desktop.interface gtk-theme $theme_color
+
+# change display and terminal font
+zsh set_font.sh
 
 # forward to zsh whenever termenal auto-start bash
 printf "SHELL=/bin/zsh\nexec /bin/zsh -l\n" >> ~/.bashrc
