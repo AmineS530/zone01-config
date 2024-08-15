@@ -22,6 +22,10 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 # small script to set up git for first use and to rembember your info in the future
 zsh git_setup.sh
 
+#change dock to panel mode and enable auto-hide
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false > /dev/null 2>&1
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false > /dev/null 2>&1
+
 # applies the background on both light and dark mode
 gsettings set org.gnome.desktop.background picture-uri-dark "file://${image_path}" 2>/dev/null
 gsettings set org.gnome.desktop.background picture-uri "file://${image_path}" 2>/dev/null
