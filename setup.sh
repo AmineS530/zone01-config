@@ -12,6 +12,9 @@ if [ -d "~/zone01-config/" ]; then
 fi
 git clone https://github.com/AmineS530/zone01-config.git ~/zone01-config && cd ~/zone01-config/ 
 
+# Makes you use french and english layouts
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'fr')]" > /dev/null 2>&1
+
 #Move the premade p10k settings and zshrc
 mv .p10k.zsh ~/.p10k.zsh && mv .zshrc ~/.zshrc
 
@@ -21,11 +24,12 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 # small script to set up git for first use and to rembember your info in the future
 zsh git_setup.sh
 
+# changing the background
+gsettings set org.gnome.desktop.background picture-uri-dark "file://${image_path}" 2>/dev/null
+gsettings set org.gnome.desktop.background picture-uri "file://${image_path}" 2>/dev/null
+
 # Changes theme Color
 zsh set_theme.sh
-
-# Makes you use french and english layouts
-gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'fr')]" > /dev/null 2>&1
 
 # change display and terminal font
 zsh set_font.sh
