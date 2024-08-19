@@ -44,7 +44,7 @@ if [[ "$theme_index" =~ ^[0-9]+$ && $theme_index -ge 1 && $theme_index -le ${#fi
     sleep 1
 
     # Set color scheme
-    if [[ "$mode" == "dark" ]]; then
+    if [[ "$theme" == "dark" ]]; then
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' 2>/dev/null
     else
         gsettings set org.gnome.desktop.interface color-scheme 'default' 2>/dev/null
