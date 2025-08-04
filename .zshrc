@@ -78,7 +78,19 @@ alias ":3"="gofmt -w . && gaa && gc -m \"quick_add-commit-push alias\" && gp"
 alias mydicksize='df -h . | grep --color=always -E "Size|Used|Avail|Capacity|[0-9]*\.*[0-9]*Mi|[0-9]*\.*[0-9]*Gi|[0-9]+\.*[0-9]+% |$"'
 alias calcdicksize="du -hs * | sort -r -h"
 alias biggestdickrecur="du -mh 2>/dev/null | sort -hr | head -30"
+alias rrun="clear && cargo run"
+push() {
+    git add --all
+    git commit -m "$1"
+    git push 
+    git push git
+}
 
+lib() {
+    cargo new --lib "$1"
+    cd "$1"
+    touch src/main.rs
+}
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
