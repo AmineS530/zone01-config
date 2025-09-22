@@ -87,9 +87,12 @@ push() {
 }
 
 lib() {
-    cargo new --lib "$1"
-    cd "$1"
-    touch src/main.rs
+	cargo new --lib "$1"
+	cd "$1"
+	touch src/main.rs
+	: > src/lib.rs
+	code src/main.rs
+	code src/lib.rs
 }
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
