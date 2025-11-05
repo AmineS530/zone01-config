@@ -8,7 +8,7 @@ image_path="$HOME/zone01-config/wallpapers/Background.jpeg"
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'fr')]" > /dev/null 2>&1
 
 # Set logout when idle to 1.5 hour
-gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 5400 >/dev/null 2>&1
+# gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 5400 >/dev/null 2>&1
 
 #Move the premade p10k settings and zshrc
 mv .p10k.zsh ~/.p10k.zsh && mv .zshrc ~/.zshrc
@@ -29,5 +29,8 @@ zsh set_theme.sh
 # change display and terminal font
 zsh set_font.sh
 
+# insatll 2nd instance of discord
+zsh dis.zsh -p
+
 # forward to zsh whenever termenal auto-start bash
-printf "SHELL=/bin/zsh\nexec /bin/zsh -l\n" >> ~/.bashrc
+# printf "SHELL=/bin/zsh\nexec /bin/zsh -l\n" >> ~/.bashrc
