@@ -80,9 +80,17 @@ alias calcdicksize="du -hs * | sort -r -h"
 alias biggestdickrecur="du -mh 2>/dev/null | sort -hr | head -30"
 alias rrun="clear && cargo run"
 push() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: push <commit message>"
+        return 1
+    fi
+
+    # Combine all args into one string and interpret \n as a real newline
+    msg=$(echo -e "$*")
+
     git add --all
-    git commit -m "$1"
-    git push 
+    git commit -m "$msg"
+    git push
     git push git
 }
 
@@ -94,6 +102,42 @@ lib() {
 	code src/main.rs
 	code src/lib.rs
 }
+
+# Create Java exercise folder and files
+jnew() {
+    if [ -z "$1" ]; then
+        echo "Usage: jnew <Name>"
+        return 1
+    fi
+
+    name="$1"
+    cd "$name" || return 1
+
+    # Create main Java file
+    cat > "${name}.java" <<EOF
+public class ${name} {
+    public static void main(String[] args) {
+        System.out.println("Hello from ${name}!");
+    }
+}
+EOF
+    # Create ExerciseRunner.java
+    cat > "ExerciseRunner.java" <<EOF
+public class ExerciseRunner {
+    public static void main(String[] args) {
+        ${name}.main(args);
+    }
+}
+EOF
+
+    echo "Created project: $name/"
+    echo " - ${name}.java"
+    echo " - ExerciseRunner.java"
+}
+
+# Compile & run ExerciseRunner
+alias jrun='javac *.java -d build && java -cp build ExerciseRunner'
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
