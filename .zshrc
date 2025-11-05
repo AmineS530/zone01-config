@@ -111,6 +111,7 @@ jnew() {
     fi
 
     name="$1"
+    mkdir "$name" || return 1
     cd "$name" || return 1
 
     # Create main Java file
