@@ -26,11 +26,12 @@ gsettings set org.gnome.desktop.background picture-uri "file://${image_path}" 2>
 # Changes theme Color
 zsh set_theme.sh
 
+# insatll 2nd instance of discord
+zsh dis.zsh -p
+
 # change display and terminal font
 zsh set_font.sh
 
-# insatll 2nd instance of discord
-zsh dis.zsh -p
 
 # forward to zsh whenever termenal auto-start bash
 # printf "SHELL=/bin/zsh\nexec /bin/zsh -l\n" >> ~/.bashrc
