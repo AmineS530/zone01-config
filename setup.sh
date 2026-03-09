@@ -27,7 +27,7 @@ gsettings set org.gnome.desktop.background picture-uri "file://${image_path}" 2>
 zsh set_theme.sh
 
 # insatll 2nd instance of discord
-zsh dis.zsh -p
+# zsh dis.zsh -p
 
 # change display and terminal font
 zsh set_font.sh
