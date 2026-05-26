@@ -10,12 +10,10 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-alias xd="cd"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
@@ -74,70 +72,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 
-alias ":3"="gofmt -w . && gaa && gc -m \"quick_add-commit-push alias\" && gp"
-alias mydicksize='df -h . | grep --color=always -E "Size|Used|Avail|Capacity|[0-9]*\.*[0-9]*Mi|[0-9]*\.*[0-9]*Gi|[0-9]+\.*[0-9]+% |$"'
-alias calcdicksize="du -hs * | sort -r -h"
-alias biggestdickrecur="du -mh 2>/dev/null | sort -hr | head -30"
-alias rrun="clear && cargo run"
-push() {
-    if [ $# -eq 0 ]; then
-        echo "Usage: push <commit message>"
-        return 1
-    fi
-
-    # Combine all args into one string and interpret \n as a real newline
-    msg=$(echo -e "$*")
-
-    git add --all
-    git commit -m "$msg"
-    git push
-    git push git
-}
-
-lib() {
-	cargo new --lib "$1"
-	cd "$1"
-	touch src/main.rs
-	: > src/lib.rs
-	code src/main.rs
-	code src/lib.rs
-}
-
-# Create Java exercise folder and files
-jnew() {
-    if [ -z "$1" ]; then
-        echo "Usage: jnew <Name>"
-        return 1
-    fi
-
-    name="$1"
-    mkdir "$name" || return 1
-    cd "$name" || return 1
-
-    # Create main Java file
-    cat > "${name}.java" <<EOF
-public class ${name} {
-    public static void main(String[] args) {
-        System.out.println("Hello from ${name}!");
-    }
-}
-EOF
-    # Create ExerciseRunner.java
-    cat > "ExerciseRunner.java" <<EOF
-public class ExerciseRunner {
-    public static void main(String[] args) {
-        ${name}.main(args);
-    }
-}
-EOF
-
-    echo "Created project: $name/"
-    echo " - ${name}.java"
-    echo " - ExerciseRunner.java"
-}
-
-# Compile & run ExerciseRunner
-alias jrun='javac *.java -d build && java -cp build ExerciseRunner'
+alias "quickpush"="gofmt -w . && gaa && gc -m \"quick_add-commit-push alias\" && gp"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/

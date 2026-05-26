@@ -45,6 +45,13 @@ docker:
 	export DOCKER_HOST=unix://$(XDG_RUNTIME_DIR)/docker.sock
 	@echo "\033[1m\033[92mDocker environment is set up for rootless mode.\033[0m"
 
+# for zsh haters
+bash:
+	@echo "\033[1m\033[92mRemoving zsh from being the default shell\033[0m"
+	@$$(sed -i '/SHELL=\/bin\/zsh/d' ~/.bashrc )
+	@$$(sed -i '/exec \/bin\/zsh -l/d' ~/.bashrc)
+	@echo "\033[1m\033[92mEnjoy Bash :))\033[0m"
+
 # make zsh default again (W move)
 zsh:
 	@echo "\033[1m\033[92mEnabling zsh as default shell :)\033[0m"
@@ -59,6 +66,11 @@ theme:
 	@echo "$(YELLOW)Running set_theme.sh...$(NC)"
 	@cd $(destination_dir) && \
 	zsh set_theme.sh
+
+background:
+	@echo "$(YELLOW)Running set_background.sh...$(NC)"
+	@cd $(destination_dir) && \
+	zsh set_background.sh
 
 finish:
 	@if pgrep gnome-terminal- > /dev/null; then \
